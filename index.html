@@ -849,27 +849,376 @@
             min-height: 80px;
         }
         
+        /* Enhanced Mobile Responsiveness */
         @media (max-width: 768px) {
             .auth-container {
                 flex-direction: column;
-                max-width: 400px;
+                max-width: 95%;
+                margin: 10px;
+                min-height: auto;
             }
             
             .auth-sidebar {
-                padding: 40px 30px;
+                padding: 30px 20px;
+            }
+            
+            .auth-sidebar h1 {
+                font-size: 1.8rem;
             }
             
             .auth-main {
-                padding: 40px 30px;
+                padding: 30px 20px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .workflow-stages {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
+            
+            /* Modal optimizations for mobile */
+            .modal {
+                padding: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                max-width: none;
+                max-height: 90vh;
+                margin: 20px auto;
+                border-radius: 12px;
+            }
+            
+            .modal-header {
+                padding: 15px;
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 10;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .modal-body {
+                padding: 15px;
+                max-height: calc(90vh - 120px);
+                overflow-y: auto;
+            }
+            
+            .modal-footer {
+                padding: 15px;
+                position: sticky;
+                bottom: 0;
+                background: white;
+                border-top: 1px solid var(--border);
+            }
+            
+            /* Form optimizations */
+            .form-group {
+                margin-bottom: 16px;
+            }
+            
+            .form-group label {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+                min-height: 48px; /* Better touch targets */
+                border-radius: 8px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-row .form-group {
+                margin-bottom: 16px;
+            }
+            
+            /* Button optimizations */
+            .btn, button {
+                min-height: 48px;
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn-group .btn {
+                width: 100%;
+            }
+            
+            /* Tab navigation */
+            .tab-buttons {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .tab-button {
+                flex: 1 1 calc(50% - 4px);
+                min-width: 120px;
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+            
+            /* Measurement inputs */
+            .measurement-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-group input {
+                border-radius: 8px 8px 0 0;
+            }
+            
+            .input-group .input-addon {
+                border-radius: 0 0 8px 8px;
+                padding: 10px;
+            }
+            
+            /* Table responsiveness */
+            .monday-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .monday-table th,
+            .monday-table td {
+                padding: 10px 8px;
+                font-size: 14px;
+                min-width: 100px;
+            }
+            
+            /* Dashboard cards */
+            .crm-container {
+                padding: 15px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .customer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Navigation */
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .nav-tab {
+                flex: 1 1 auto;
+                min-width: 100px;
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+            
+            /* Board view */
+            .board-header {
+                padding: 12px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .board-controls {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .board-controls .btn {
+                flex: 1 1 auto;
+                min-width: 100px;
+            }
+            
+            /* Search and filters */
+            .search-box {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .filter-buttons {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            /* Profile sections */
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .profile-section {
+                padding: 15px;
+            }
+            
+            /* Activity timeline */
+            .activity-item {
+                padding-left: 30px;
+            }
+            
+            .activity-icon {
+                width: 24px;
+                height: 24px;
+                left: 0;
+            }
+            
+            /* Status badges */
+            .status-badge {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .auth-container {
+                border-radius: 0;
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+            }
+            
+            .modal-content {
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .tab-button {
+                flex: 1 1 100%;
+            }
+            
+            .board-title {
+                font-size: 18px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Larger touch targets */
+            .clickable,
+            .btn,
+            button,
+            a,
+            .tab-button,
+            .nav-tab {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Remove hover effects on touch devices */
+            .btn:hover,
+            button:hover {
+                transform: none;
+            }
+            
+            /* Better spacing for touch */
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            /* Improved select dropdowns */
+            select {
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+                background-size: 20px;
+                padding-right: 40px;
+            }
+        }
+        
+        /* Mobile-specific styles */
+        .is-mobile .modal {
+            padding: 0;
+        }
+        
+        .is-mobile .modal-content {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Touch feedback */
+        .btn.touched,
+        button.touched {
+            opacity: 0.8;
+            transform: scale(0.98);
+        }
+        
+        /* Viewport height fix for mobile */
+        .modal-content {
+            max-height: calc(var(--vh, 1vh) * 90);
+        }
+        
+        /* iOS-specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS only styles */
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="number"],
+            textarea,
+            select {
+                -webkit-appearance: none;
+                appearance: none;
+            }
+            
+            /* Fix for iOS modal scrolling */
+            .modal.active {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        /* Swipe indicator for modal */
+        .is-mobile .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            z-index: 1;
         }
         
         /* Monday.com Style Table Board - Enhanced with Scrolling */
@@ -2964,11 +3313,38 @@
         
         // Modal functions
         function showNewJobModal() {
-            document.getElementById('newJobModal').classList.add('active');
+            openModal('newJobModal');
         }
         
         function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                // Reset form if it exists
+                const form = modal.querySelector('form');
+                if (form) form.reset();
+                // Remove body scroll lock on mobile
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Enhanced modal opening for mobile
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                // Prevent body scroll on mobile when modal is open
+                if (window.innerWidth <= 768) {
+                    document.body.style.overflow = 'hidden';
+                }
+                // Focus first input for better UX
+                setTimeout(() => {
+                    const firstInput = modal.querySelector('input, select, textarea');
+                    if (firstInput && window.innerWidth > 768) {
+                        firstInput.focus();
+                    }
+                }, 100);
+            }
         }
         
         function createNewJob(event) {
@@ -3014,7 +3390,7 @@
             loadCustomerEstimates();
             
             // Show modal
-            document.getElementById('customerProfileModal').classList.add('active');
+            openModal('customerProfileModal');
         }
         
         function switchProfileTab(tab) {
@@ -3906,6 +4282,109 @@
             // In production, validate token with backend
             loginDemo();
         }
+        
+        // Mobile-specific enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Detect mobile device
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Add mobile class to body
+                document.body.classList.add('is-mobile');
+                
+                // Improve form input behavior on iOS
+                const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
+                inputs.forEach(input => {
+                    // Prevent zoom on focus (iOS)
+                    input.addEventListener('focus', function() {
+                        if (this.style.fontSize !== '16px') {
+                            this.style.fontSize = '16px';
+                        }
+                    });
+                    
+                    // Add clear button functionality
+                    input.addEventListener('input', function() {
+                        if (this.value.length > 0) {
+                            this.classList.add('has-value');
+                        } else {
+                            this.classList.remove('has-value');
+                        }
+                    });
+                });
+                
+                // Improve select dropdown behavior
+                const selects = document.querySelectorAll('select');
+                selects.forEach(select => {
+                    select.addEventListener('change', function() {
+                        this.blur(); // Remove focus after selection
+                    });
+                });
+                
+                // Add swipe to close for modals
+                let touchStartY = 0;
+                let touchEndY = 0;
+                
+                document.querySelectorAll('.modal-content').forEach(modal => {
+                    modal.addEventListener('touchstart', function(e) {
+                        touchStartY = e.changedTouches[0].screenY;
+                    });
+                    
+                    modal.addEventListener('touchend', function(e) {
+                        touchEndY = e.changedTouches[0].screenY;
+                        handleSwipe(this.closest('.modal'));
+                    });
+                });
+                
+                function handleSwipe(modal) {
+                    if (touchEndY - touchStartY > 100) { // Swipe down
+                        const modalId = modal.getAttribute('id');
+                        if (modalId) closeModal(modalId);
+                    }
+                }
+                
+                // Improve button feedback
+                document.querySelectorAll('.btn, button').forEach(button => {
+                    button.addEventListener('touchstart', function() {
+                        this.classList.add('touched');
+                    });
+                    
+                    button.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('touched');
+                        }, 200);
+                    });
+                });
+            }
+            
+            // Handle orientation change
+            window.addEventListener('orientationchange', function() {
+                // Adjust modal heights after orientation change
+                setTimeout(() => {
+                    document.querySelectorAll('.modal.active .modal-content').forEach(modal => {
+                        if (window.innerWidth <= 768) {
+                            modal.style.maxHeight = window.innerHeight + 'px';
+                        }
+                    });
+                }, 300);
+            });
+            
+            // Improve number input scrolling on mobile
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                });
+            });
+            
+            // Add viewport height fix for mobile browsers
+            function setViewportHeight() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setViewportHeight();
+            window.addEventListener('resize', setViewportHeight);
+            window.addEventListener('orientationchange', setViewportHeight);
+        });
     </script>
 </body>
 </html>
